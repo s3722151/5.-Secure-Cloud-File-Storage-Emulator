@@ -4,10 +4,12 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.FlowLayout;
 
-public class retrieveFile {
+public class retrieveFile 
+{
 	
 	//Method: https://stackoverflow.com/questions/40255039/how-to-choose-file-in-java
-	static void selectedFile() {
+	static void selectedFile() 
+	{
 	    JFileChooser chooser = new JFileChooser();
 	    
 	    chooser.setCurrentDirectory(new File("."));
@@ -18,7 +20,8 @@ public class retrieveFile {
 	    chooser.setFileFilter(filter);
 	    int returnVal = chooser.showOpenDialog(null);
 	    
-	    try {
+	    try 
+	    {
 	        if(returnVal == JFileChooser.APPROVE_OPTION) {
 	            System.out.println("You chose to open this file: " +
 	                    chooser. getName());
@@ -30,12 +33,32 @@ public class retrieveFile {
 	    	System.out.println(e);
 	    }		
 	}
-	
-	//Method: https://www.youtube.com/watch?v=A6sA9KItwpY&t=11s
+	//Method: https://www.youtube.com/watch?v=gMVkp8108f0
+	public static String getFileName() 
+	{
+		String filepath ="None"; //Default value of string
+		JFileChooser chooser = new JFileChooser();//Allows you to browse files
+		chooser.setCurrentDirectory(new File("."));//Where JFileChooser opens by default
+		int result = chooser.showOpenDialog(chooser); //We store result as int to interact with
+		
+		if ((result ==JFileChooser.APPROVE_OPTION)) 
+		{
+			File selectedFile = chooser.getSelectedFile();
+			filepath = selectedFile.getAbsolutePath();
+		}
+		return filepath;
+		
+	}	
 
 	
-	public static void main(String[] args) {
-		selectedFile();
+	public static void main(String[] args) 
+	{
+	String fileName = getFileName();
+	System.out.println(fileName);
+	if (fileName.equals("None"))
+		{
+			System.out.println("No file could be found.");
+		}
 
 	}//End of main statement
 
