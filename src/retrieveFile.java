@@ -41,18 +41,26 @@ public class retrieveFile
 		chooser.setCurrentDirectory(new File("."));//Where JFileChooser opens by default
 		int result = chooser.showOpenDialog(chooser); //We store result as int to interact with
 		
-		if ((result ==JFileChooser.APPROVE_OPTION)) 
+		try 
 		{
-			File selectedFile = chooser.getSelectedFile();
-			filepath = selectedFile.getName();
+			if ((result ==JFileChooser.APPROVE_OPTION)) 
+			{
+				File selectedFile = chooser.getSelectedFile();
+				filepath = selectedFile.getName();
+			}
 		}
-		return filepath;
-		
+	    catch (Exception e)
+	    {
+	    	System.out.println("Opening the file has failed.");
+	    	System.out.println(e);
+	    }
+		return filepath;	
 	}	
 
 	
 	public static void main(String[] args) 
 	{
+
 	String fileName = getFileName();
 	System.out.println(fileName);
 	if (fileName.equals("None"))
