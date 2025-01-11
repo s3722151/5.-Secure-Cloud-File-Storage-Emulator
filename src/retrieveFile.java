@@ -39,6 +39,9 @@ public class retrieveFile
 		String filepath ="None"; //Default value of string
 		JFileChooser chooser = new JFileChooser();//Allows you to browse files
 		chooser.setCurrentDirectory(new File("."));//Where JFileChooser opens by default
+	    FileNameExtensionFilter filter = new FileNameExtensionFilter(
+	            "JPG & GIF Images", "jpg", "gif", "png", "txt");
+	    chooser.setFileFilter(filter);
 		int result = chooser.showOpenDialog(chooser); //We store result as int to interact with
 		
 		try 

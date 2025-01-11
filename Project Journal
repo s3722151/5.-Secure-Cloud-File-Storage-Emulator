@@ -3,3 +3,10 @@
 9/1/2025
 Created the project with the requirements. 
 Used this to diagnose issues of cloning github to eclipse. https://www.youtube.com/watch?v=LPT7v69guVY&t=376s
+
+10/1/2025
+Imported the packages necessary to select a file.
+
+11/1/2025
+Created and experimented with the second method.
+Decided to add to it by allowing a try catch statement, allowing more file extensions, adding a return.
