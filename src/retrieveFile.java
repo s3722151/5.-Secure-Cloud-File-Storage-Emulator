@@ -7,7 +7,7 @@ import java.awt.FlowLayout;
 public class retrieveFile 
 {
 	
-	//Method: https://stackoverflow.com/questions/40255039/how-to-choose-file-in-java
+	//Method 1: https://stackoverflow.com/questions/40255039/how-to-choose-file-in-java
 	static void selectedFile() 
 	{
 	    JFileChooser chooser = new JFileChooser();
@@ -24,7 +24,7 @@ public class retrieveFile
 	    {
 	        if(returnVal == JFileChooser.APPROVE_OPTION) {
 	            System.out.println("You chose to open this file: " +
-	                    chooser. getName());
+	                    chooser.getSelectedFile().getName());
 	        }	
 	    }
 	    catch (Exception e)
@@ -33,7 +33,7 @@ public class retrieveFile
 	    	System.out.println(e);
 	    }		
 	}
-	//Method: https://www.youtube.com/watch?v=gMVkp8108f0
+	//Method 2: https://www.youtube.com/watch?v=gMVkp8108f0
 	public static String getFileName() 
 	{
 		String filepath ="None"; //Default value of string
@@ -44,7 +44,7 @@ public class retrieveFile
 		if ((result ==JFileChooser.APPROVE_OPTION)) 
 		{
 			File selectedFile = chooser.getSelectedFile();
-			filepath = selectedFile.getAbsolutePath();
+			filepath = selectedFile.getName();
 		}
 		return filepath;
 		
