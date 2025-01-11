@@ -26,6 +26,7 @@ public class retrieveFile {
 	    }
 	    catch (Exception e)
 	    {
+	    	System.out.println("Opening the file has failed.");
 	    	System.out.println(e);
 	    }		
 	}
