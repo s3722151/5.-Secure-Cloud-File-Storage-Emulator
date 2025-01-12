@@ -7,32 +7,7 @@ import java.awt.FlowLayout;
 public class retrieveFile 
 {
 	
-	//Method 1: https://stackoverflow.com/questions/40255039/how-to-choose-file-in-java
-	static void selectedFile() 
-	{
-	    JFileChooser chooser = new JFileChooser();
-	    
-	    chooser.setCurrentDirectory(new File("."));
-	    //How to open at select place: chooser.setCurrentDirectory(new File("C:\\Users\\JC\\Documents"));
-	    
-	    FileNameExtensionFilter filter = new FileNameExtensionFilter(
-	            "JPG & GIF Images", "jpg", "gif", "png", "txt");
-	    chooser.setFileFilter(filter);
-	    int returnVal = chooser.showOpenDialog(null);
-	    
-	    try 
-	    {
-	        if(returnVal == JFileChooser.APPROVE_OPTION) {
-	            System.out.println("You chose to open this file: " +
-	                    chooser.getSelectedFile().getName());
-	        }	
-	    }
-	    catch (Exception e)
-	    {
-	    	System.out.println("Opening the file has failed.");
-	    	System.out.println(e);
-	    }		
-	}
+
 	//Method 2: https://www.youtube.com/watch?v=gMVkp8108f0
 	public static String getFileName() 
 	{
@@ -50,6 +25,11 @@ public class retrieveFile
 			{
 				File selectedFile = chooser.getSelectedFile();
 				filepath = selectedFile.getName();
+				System.out.println("The file that you are trying to retrieve is:  " + filepath);
+			}
+			else if (filepath.equals("None"))
+			{
+				System.out.println("No file could be found. The first line");
 			}
 		}
 	    catch (Exception e)
@@ -63,13 +43,13 @@ public class retrieveFile
 	
 	public static void main(String[] args) 
 	{
-
-	String fileName = getFileName();
-	System.out.println(fileName);
-	if (fileName.equals("None"))
-		{
-			System.out.println("No file could be found.");
-		}
+	getFileName();
+//	String fileName = getFileName();
+//	System.out.println(fileName);
+//	if (fileName.equals("None"))
+//		{
+//			System.out.println("No file could be found.");
+//		}
 
 	}//End of main statement
 

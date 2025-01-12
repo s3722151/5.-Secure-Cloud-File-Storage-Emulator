@@ -10,3 +10,7 @@ Imported the packages necessary to select a file.
 11/1/2025
 Created and experimented with the second method.
 Decided to add to it by allowing a try catch statement, allowing more file extensions, adding a return.
+
+12/1/2025
+Moved method 1 to oldCode file. Edited method 2 so that it could just be executed as a method. 
+In method 2 also included a else statement so that another prompt would appear if nothing is selected.
