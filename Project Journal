@@ -16,3 +16,5 @@ Moved method 1 to oldCode file. Edited method 2 so that it could just be execute
 In method 2 also included a else statement so that another prompt would appear if nothing is selected.
 
 13/1/2025
+Started progress on reading the file. 
+I just need to figure out how to make a what user selected go into the method. 
