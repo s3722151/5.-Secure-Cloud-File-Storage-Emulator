@@ -9,8 +9,6 @@ import java.util.Scanner; // Import the Scanner class to read text files
 
 public class retrieveFile 
 {
-	
-
 	//Method 2: https://www.youtube.com/watch?v=gMVkp8108f0
 	public static String getFileName() 
 	{
@@ -76,10 +74,6 @@ public class retrieveFile
 //			System.out.println("No file could be found.");
 //		}
 
-	
-	
-	
-	
 	}//End of main statement
 
 }//End of class
