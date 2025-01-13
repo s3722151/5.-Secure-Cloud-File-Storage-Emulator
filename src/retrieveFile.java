@@ -43,6 +43,7 @@ public class retrieveFile
 	
 	public static void main(String[] args) 
 	{
+	System.out.println("Select the file that you wish to encrypt.");
 	getFileName();
 //	String fileName = getFileName();
 //	System.out.println(fileName);
@@ -51,6 +52,8 @@ public class retrieveFile
 //			System.out.println("No file could be found.");
 //		}
 
+	
+	
 	}//End of main statement
 
 }//End of class
