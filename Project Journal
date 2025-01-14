@@ -18,3 +18,9 @@ In method 2 also included a else statement so that another prompt would appear i
 13/1/2025
 Started progress on reading the file. 
 I just need to figure out how to make a what user selected go into the method. 
+
+14/1/2025 
+Fixed the issue of making a variable call upon a method. 
+- Defined it in main method. Then assigned it to method rather than defining it in method.
+Fixed the issue with reading a file based on input.
+- Rather than making a method, I placed the code in the main method, that way input could be read. 

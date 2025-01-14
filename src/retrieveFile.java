@@ -40,12 +40,18 @@ public class retrieveFile
 	    }
 		return filepath;	
 	}
-	//Method 3 - Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
-	public static String readFile()
+	
+	public static void main(String[] args) 
 	{
+	System.out.println("Select the file that you wish to encrypt.");
+	String fileName;
+	fileName = getFileName();
+	System.out.println("Now reading the file" + fileName);
+	System.out.println("The contents of the file is as follows.");
+	//Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
 	File myObj;
 	   try {
-		      myObj = new File("test.txt");
+		      myObj = new File(fileName);
 		      Scanner myReader = new Scanner(myObj);  
 		      while (myReader.hasNextLine()) {
 		        String data = myReader.nextLine();
@@ -55,21 +61,9 @@ public class retrieveFile
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
-		    } 	
-	   return myObj;
-	}
-	
-	public static void main(String[] args) 
-	{
-	System.out.println("Select the file that you wish to encrypt.");
-	String fileName;
-	fileName = getFileName();
-	System.out.println("Now reading the file and encrypting the file with AES");
-	readFile(fileName);
-	System.out.println("Now generating a key to encrypt the file.");
-	
-	
-	
+		    }
+	System.out.println("Now proceeding to encrypt with AES.");
+
 //	String fileName = getFileName();
 //	System.out.println(fileName);
 //	if (fileName.equals("None"))
@@ -90,9 +84,11 @@ https://stackoverflow.com/questions/40255039/how-to-choose-file-in-java
 https://www.youtube.com/watch?v=1mVldWMT7Vc
 	https://www.youtube.com/watch?v=gMVkp8108f0
 
-2. Read the file 
+2. Read the file
+Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
 
-3. Encrypt the file 
+3. Encrypt the file (AES)
+https://www.baeldung.com/java-aes-encryption-decryption
 
 4. Write a new file 
 
