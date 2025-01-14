@@ -41,28 +41,31 @@ public class retrieveFile
 		return filepath;	
 	}
 	//Method 3 - Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
-	public static void readFile()
+	public static String readFile()
 	{
+	File myObj;
 	   try {
-		      File myObj = new File("test.txt");
+		      myObj = new File("test.txt");
 		      Scanner myReader = new Scanner(myObj);  
 		      while (myReader.hasNextLine()) {
 		        String data = myReader.nextLine();
 		        System.out.println(data);
 		      }
-		      myReader.close();
+		      //myReader.close();
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    } 	
+	   return myObj;
 	}
 	
 	public static void main(String[] args) 
 	{
 	System.out.println("Select the file that you wish to encrypt.");
-	String fileName = getFileName();
-	System.out.println("Now reading the file and encrypting the file.");
-//	readFile(fileName);
+	String fileName;
+	fileName = getFileName();
+	System.out.println("Now reading the file and encrypting the file with AES");
+	readFile(fileName);
 	System.out.println("Now generating a key to encrypt the file.");
 	
 	
