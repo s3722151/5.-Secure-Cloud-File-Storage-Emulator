@@ -5,7 +5,17 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.FlowLayout;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner; // Import the Scanner class to read text files
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.KeyGenerator;
+import javax.crypto.NoSuchPaddingException;
 
 public class retrieveFile 
 {
@@ -41,7 +51,7 @@ public class retrieveFile
 		return filepath;	
 	}
 	
-	public static void main(String[] args) 
+	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException 
 	{
 	System.out.println("Select the file that you wish to encrypt.");
 	String fileName;
@@ -62,8 +72,45 @@ public class retrieveFile
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
+	   
 	System.out.println("Now proceeding to encrypt with AES.");
+	// Step 1: Convert the text to bytes.
+	byte[] message = fileName.getBytes();
+    // Step 2: Create a KeyGenerator object - Generate a secret (symmetric) key
+    KeyGenerator keyGen = KeyGenerator.getInstance("AES");
+    // Step 3: Initialize KeyGenerator - tell how many bytes we want our key to be.
+    keyGen.init(256);
+    // Step 4: Generate the key
+    Key key = keyGen.generateKey();
+    // Step 5: Create a Cipher object -  handle our encryption and decryption
+    Cipher cipher = null;
+	try {
+		cipher = Cipher.getInstance("AES");
+	} catch (NoSuchAlgorithmException e) {
+		// TODO Auto-generated catch block
+		System.out.println("Couldn't complete step 5 and create Cipher object.");	
+		e.printStackTrace();	
+	} catch (NoSuchPaddingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    // Step 6: Initialize the Cipher object - Tell to encrypt
+    try {
+		cipher.init(Cipher.ENCRYPT_MODE, key);
+	} catch (InvalidKeyException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    // Step 7: Give the Cipher our message
+    cipher.update(message);
+    // Step 8: Encrypt the message
+    byte[] ciphertext = cipher.doFinal();
+    // Step 9: Print the ciphertext
+    System.out.println("Plain message, unencrypted input is: " + new String(fileName));
+    System.out.println("Ciphertext, encrypted input is now: " + new String(ciphertext, "UTF8"));
 
+    //How to create and write a file: https://www.w3schools.com/java/java_files_create.asp
+    
 //	String fileName = getFileName();
 //	System.out.println(fileName);
 //	if (fileName.equals("None"))
@@ -77,6 +124,9 @@ public class retrieveFile
 
 
 /*
+What I still don't understand
+- Why I had to throw an exception in main method 
+
 Referernces
 STAGE 1: 
 1. Get File 
@@ -88,9 +138,12 @@ https://www.youtube.com/watch?v=1mVldWMT7Vc
 Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
 
 3. Encrypt the file (AES)
-https://www.baeldung.com/java-aes-encryption-decryption
+What is AES: https://www.techtarget.com/searchsecurity/definition/Advanced-Encryption-Standard
+How to do Symmetric Encryption: https://gregorycernera.medium.com/encrypting-and-decrypting-a-message-using-symmetric-keys-with-java-explained-step-by-step-with-a523b67877d8
+	https://www.baeldung.com/java-aes-encryption-decryption
 
 4. Write a new file 
+https://www.w3schools.com/java/java_files_create.asp
 
 STAGE 2: Retrieving the file
 
