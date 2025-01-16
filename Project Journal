@@ -29,3 +29,9 @@ Fixed the issue with reading a file based on input.
 I just copied how I encrypted a a file using AES from a previous project :).
 Plan to create the read and write tomorrow then next day finish project by 
 making another class that can decrypt a file. 
+
+16/1/2025
+Created folder to store the encrypted files. 
+Created the code to create file and write to file in cloud storage. 
+Created a method(space) for spacing to make reading console easier.
+Created the class "encryptFile" and "decryptFile" as name lines more of the function of the project.

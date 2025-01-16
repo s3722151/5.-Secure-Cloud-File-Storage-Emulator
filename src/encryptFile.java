@@ -3,23 +3,24 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.FlowLayout;
-import java.io.File;  // Import the File class
+import java.io.File;  // To read files
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
+import java.io.IOException; //To create a file 
+import java.io.FileWriter;   // Import the FileWriter class
 
-public class retrieveFile 
+public class encryptFile 
 {
-	//Method 2: https://www.youtube.com/watch?v=gMVkp8108f0
+	//Method to choose a file: https://www.youtube.com/watch?v=gMVkp8108f0
 	public static String getFileName() 
 	{
 		String filepath ="None"; //Default value of string
@@ -50,13 +51,19 @@ public class retrieveFile
 	    }
 		return filepath;	
 	}
+	public static void space()
+	{
+		System.out.println("                                                                                       ");
+	}
 	
+	//Main Method
 	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException 
 	{
 	System.out.println("Select the file that you wish to encrypt.");
 	String fileName;
 	fileName = getFileName();
-	System.out.println("Now reading the file" + fileName);
+	space();
+	System.out.println("Now reading the file: " + fileName);
 	System.out.println("The contents of the file is as follows.");
 	//Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
 	File myObj;
@@ -72,7 +79,7 @@ public class retrieveFile
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
-	   
+	space();   
 	System.out.println("Now proceeding to encrypt with AES.");
 	// Step 1: Convert the text to bytes.
 	byte[] message = fileName.getBytes();
@@ -87,11 +94,9 @@ public class retrieveFile
 	try {
 		cipher = Cipher.getInstance("AES");
 	} catch (NoSuchAlgorithmException e) {
-		// TODO Auto-generated catch block
-		System.out.println("Couldn't complete step 5 and create Cipher object.");	
+		System.out.println("The AES cryptographic algorithm requested is not available in the environment.");	
 		e.printStackTrace();	
 	} catch (NoSuchPaddingException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
     // Step 6: Initialize the Cipher object - Tell to encrypt
@@ -101,31 +106,47 @@ public class retrieveFile
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-    // Step 7: Give the Cipher our message
+    // Step 7: Give the Cipher our file
     cipher.update(message);
-    // Step 8: Encrypt the message
+    // Step 8: Encrypt the file
     byte[] ciphertext = cipher.doFinal();
     // Step 9: Print the ciphertext
     System.out.println("Plain message, unencrypted input is: " + new String(fileName));
     System.out.println("Ciphertext, encrypted input is now: " + new String(ciphertext, "UTF8"));
+    space();
 
-    //How to create and write a file: https://www.w3schools.com/java/java_files_create.asp
+    //How to create and write to a file: https://www.w3schools.com/java/java_files_create.asp
+    try {  
+        File createObj = new File("C:\\Users\\JC\\Documents\\Programming Projects\\5.-Secure-Cloud-File-Storage-Emulator\\cloud\\test.txt"); //CHANGE this path based on where you saved it.  
+        if (createObj.createNewFile()) {  
+          System.out.println("File created: " + createObj.getName());  
+        } else {  
+          System.out.println("Could not create the file: "+ fileName + "to store encrypted results as file already exists.");  
+        }  
+      } catch (IOException e) {
+        System.out.println("An error occurred while creating the file that would be encrypted.");
+        e.printStackTrace();  
+      }
+    space();
+    try {
+        FileWriter myWriter = new FileWriter("C:\\Users\\JC\\Documents\\Programming Projects\\5.-Secure-Cloud-File-Storage-Emulator\\cloud\\test.txt");//CHANGE this path based on where you saved it.
+        myWriter.write(new String(ciphertext, "UTF8"));
+        myWriter.close();
+        System.out.println("Successfully wrote to the file the encrypted contents.");
+      } catch (IOException e) {
+        System.out.println("An error occurred while writing to the file.");
+        e.printStackTrace();
+      }
+    space();
     
-//	String fileName = getFileName();
-//	System.out.println(fileName);
-//	if (fileName.equals("None"))
-//		{
-//			System.out.println("No file could be found.");
-//		}
-
+    System.out.println("File: " +  fileName + " encrypted and uploaded successfully to the cloud.");
 	}//End of main statement
 
-}//End of class
-
-
+}
 /*
 What I still don't understand
-- Why I had to throw an exception in main method 
+- Why I had to throw an exception in main method
+- Create file method: Should I have selected where file is saved? 
 
 Referernces
 STAGE 1: 
