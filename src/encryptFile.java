@@ -137,9 +137,9 @@ public class encryptFile
         System.out.println("An error occurred while writing to the file.");
         e.printStackTrace();
       }
-    space();
-    
+    space();    
     System.out.println("File: " +  fileName + " encrypted and uploaded successfully to the cloud.");
+    space(); 
 	}//End of main statement
 
 }

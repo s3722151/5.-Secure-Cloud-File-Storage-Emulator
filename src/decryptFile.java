@@ -76,7 +76,7 @@ public class decryptFile
 		      }
 		      //myReader.close();
 		    } catch (FileNotFoundException e) {
-		      System.out.println("An error occurred.");
+		      System.out.println("An error occurred while reading the file.");
 		      e.printStackTrace();
 		    }
 	space();   
@@ -101,7 +101,7 @@ public class decryptFile
 	}
     // Step 6: Initialize the Cipher object - Tell to encrypt
     try {
-		cipher.init(Cipher.ENCRYPT_MODE, key);
+		cipher.init(Cipher.DECRYPT_MODE, key);
 	} catch (InvalidKeyException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -109,10 +109,10 @@ public class decryptFile
     // Step 7: Give the Cipher our file
     cipher.update(message);
     // Step 8: Encrypt the file
-    byte[] ciphertext = cipher.doFinal();
+    byte[] decrypted = cipher.doFinal();
     // Step 9: Print the ciphertext
     System.out.println("Plain message, encrypted input is: " + new String(fileName));
-    System.out.println("Ciphertext, decrypted input is now: " + new String(ciphertext, "UTF8"));
+    System.out.println("Ciphertext, decrypted input is now: " + new String(decrypted, "UTF8"));
     space();
 
     //How to create and write to a file: https://www.w3schools.com/java/java_files_create.asp
@@ -124,15 +124,15 @@ public class decryptFile
           System.out.println("Could not create the file: "+ fileName + " to store encrypted results as file already exists.");  
         }  
       } catch (IOException e) {
-        System.out.println("An error occurred while creating the file that would be encrypted.");
+        System.out.println("An error occurred while creating the file that would be decrypted.");
         e.printStackTrace();  
       }
     space();
     try {
         FileWriter myWriter = new FileWriter("cloud\\decrypted"+ fileName);//CHANGE this path based on where you saved it.
-        myWriter.write(new String(ciphertext, "UTF8"));
+        myWriter.write(new String(decrypted, "UTF8"));
         myWriter.close();
-        System.out.println("Successfully wrote to the file the encrypted contents.");
+        System.out.println("Successfully wrote to the file the decrypted contents.");
       } catch (IOException e) {
         System.out.println("An error occurred while writing to the file.");
         e.printStackTrace();

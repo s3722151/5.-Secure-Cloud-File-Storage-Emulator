@@ -36,3 +36,5 @@ Created the code to create file and write to file in cloud storage.
 Created a method(space) for spacing to make reading console easier.
 Created the class "encryptFile" and "decryptFile" as name lines more of the function of the project.
 Created a relative path for the creating and writing to the encrypted file.
+Turns out I cannot make a new class and re-use code as the key to encrypt is not saved. 
+I should find a way to save it or keep code in 1 class.
