@@ -117,11 +117,11 @@ public class decryptFile
 
     //How to create and write to a file: https://www.w3schools.com/java/java_files_create.asp
     try {  
-        File createObj = new File("C:\\Users\\JC\\Documents\\Programming Projects\\5.-Secure-Cloud-File-Storage-Emulator\\cloud\\test.txt"); //CHANGE this path based on where you saved it.  
+        File createObj = new File("cloud\\test.txt"); //CHANGE this path based on where you saved it.  
         if (createObj.createNewFile()) {  
           System.out.println("File created: " + createObj.getName());  
         } else {  
-          System.out.println("Could not create the file: "+ fileName + "to store encrypted results as file already exists.");  
+          System.out.println("Could not create the file: "+ fileName + " to store encrypted results as file already exists.");  
         }  
       } catch (IOException e) {
         System.out.println("An error occurred while creating the file that would be encrypted.");
