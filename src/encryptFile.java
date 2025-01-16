@@ -117,7 +117,7 @@ public class encryptFile
 
     //How to create and write to a file: https://www.w3schools.com/java/java_files_create.asp
     try {  
-        File createObj = new File("cloud\\test.txt"); //CHANGE this path based on where you saved it.  
+        File createObj = new File("cloud\\encrypted"+ fileName); //CHANGE this path based on where you saved it.  
         if (createObj.createNewFile()) {  
           System.out.println("File created: " + createObj.getName());  
         } else {  
@@ -129,7 +129,7 @@ public class encryptFile
       }
     space();
     try {
-        FileWriter myWriter = new FileWriter("cloud\\test.txt");//CHANGE this path based on where you saved it.
+        FileWriter myWriter = new FileWriter("cloud\\encrypted"+ fileName);//CHANGE this path based on where you saved it.
         myWriter.write(new String(ciphertext, "UTF8"));
         myWriter.close();
         System.out.println("Successfully wrote to the file the encrypted contents.");
