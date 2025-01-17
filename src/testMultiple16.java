@@ -25,7 +25,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-public class encryptFile 
+public class testMultiple16 
 {
 //Method to choose a file: https://www.youtube.com/watch?v=gMVkp8108f0
 	public static String getFileName() 
@@ -199,8 +199,6 @@ public class encryptFile
     //Step 7: Confirmation message
     System.out.println("File: " +  retrieveEncryptedFileName + " encrypted and uploaded successfully to the cloud.");
     space();
-    
-    //Follow up on how to decode @@: https://www.baeldung.com/java-base64-encode-and-decode
 	
 	}//End of main statement
 
