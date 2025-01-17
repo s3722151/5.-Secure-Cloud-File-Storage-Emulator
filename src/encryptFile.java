@@ -20,7 +20,7 @@ import java.io.FileWriter;   // Import the FileWriter class
 
 public class encryptFile 
 {
-	//Method to choose a file: https://www.youtube.com/watch?v=gMVkp8108f0
+//Method to choose a file: https://www.youtube.com/watch?v=gMVkp8108f0
 	public static String getFileName() 
 	{
 		String filepath ="None"; //Default value of string
@@ -56,7 +56,7 @@ public class encryptFile
 		System.out.println("                                                                                       ");
 	}
 	
-	//Main Method
+//Main Method
 	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException 
 	{
 	System.out.println("Select the file that you wish to encrypt.");
@@ -79,7 +79,8 @@ public class encryptFile
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();
 		    }
-	space();   
+	space();
+//Encrypt stage
 	System.out.println("Now proceeding to encrypt with AES.");
 	// Step 1: Convert the text to bytes.
 	byte[] message = fileName.getBytes();
@@ -134,12 +135,64 @@ public class encryptFile
         myWriter.close();
         System.out.println("Successfully wrote to the file the encrypted contents.");
       } catch (IOException e) {
-        System.out.println("An error occurred while writing to the file.");
+        System.out.println("An error occurred while writing to the file - encrypted contents.");
         e.printStackTrace();
       }
     space();    
     System.out.println("File: " +  fileName + " encrypted and uploaded successfully to the cloud.");
-    space(); 
+    space();
+    
+//Decrypting Stage
+    System.out.println("Now proceed to decrypt a file of your choice.");
+    String retrieveEncryptedFileName;
+    retrieveEncryptedFileName = getFileName();
+	space();   
+	System.out.println("Now proceeding to decrypt with AES.");
+	// Step 1: Convert the text to bytes.
+	byte[] encryptedMessage = retrieveEncryptedFileName.getBytes();
+    //Step 1: Initialize the Cipher object - Tell to decrypt
+    try {
+		cipher.init(Cipher.DECRYPT_MODE, key);
+	} catch (InvalidKeyException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+    // Step 2: Give the Cipher our file
+    cipher.update(encryptedMessage);
+    // Step 3: Decrypt the file
+    byte[] decryptText = cipher.doFinal();
+    // Step 4: Print the decryptText
+    System.out.println("Cipghertext, encrypted input is: " + new String(retrieveEncryptedFileName));
+    System.out.println("Plain text, decrypted input is now: " + new String(decryptText, "UTF8"));
+    space();
+    //Step 5: Create the file where decrypted message will be saved
+    try {  
+        File createObj = new File("cloud\\encrypted"+ retrieveEncryptedFileName); //CHANGE this path based on where you saved it.  
+        if (createObj.createNewFile()) {  
+          System.out.println("File created: " + createObj.getName());  
+        } else {  
+          System.out.println("Could not create the file: "+ fileName + " to store decrypted results as file already exists.");  
+        }  
+      } catch (IOException e) {
+        System.out.println("An error occurred while creating the file that would be decrypted.");
+        e.printStackTrace();  
+      }
+    space();
+    //Step 6: Save the file
+    try {
+        FileWriter myWriter = new FileWriter("cloud\\decrypted"+ retrieveEncryptedFileName);//CHANGE this path based on where you saved it.
+        myWriter.write(new String(encryptedMessage, "UTF8"));
+        myWriter.close();
+        System.out.println("Successfully wrote to the file the decrypted contents.");
+      } catch (IOException e) {
+        System.out.println("An error occurred while writing to the file - decrypted contents.");
+        e.printStackTrace();
+      }
+    space();
+    //Step 7: Confirmation message
+    System.out.println("File: " +  retrieveEncryptedFileName + " encrypted and uploaded successfully to the cloud.");
+    space();
+	
 	}//End of main statement
 
 }
@@ -171,5 +224,6 @@ STAGE 2: Retrieving the file
 
 Other
 How to make a method: https://www.w3schools.com/java/java_methods.asp
+Declaring and initalising variables: https://www.youtube.com/watch?v=FIbvd64b6ZA
 
  */

@@ -38,3 +38,7 @@ Created the class "encryptFile" and "decryptFile" as name lines more of the func
 Created a relative path for the creating and writing to the encrypted file.
 Turns out I cannot make a new class and re-use code as the key to encrypt is not saved. 
 I should find a way to save it or keep code in 1 class.
+
+17/1/2025
+Added decrypting mode. 
+Problem is I am getting an error that input length must be a multiple of 16 when decrypting.
