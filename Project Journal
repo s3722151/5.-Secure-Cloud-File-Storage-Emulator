@@ -42,3 +42,6 @@ I should find a way to save it or keep code in 1 class.
 17/1/2025
 Added decrypting mode. 
 Problem is I am getting an error that input length must be a multiple of 16 when decrypting.
+
+18/1/2025
+Tried solutions online to solving padding issue. They did not work.
