@@ -1,12 +1,12 @@
-//https://stackoverflow.com/questions/10494764/input-length-must-be-multiple-of-16-when-decrypting-with-padded-cipher
-	import java.util.Arrays;
-    import java.util.Base64;
 
-    import javax.crypto.Cipher;
-    import javax.crypto.SecretKey;
-    import javax.crypto.spec.SecretKeySpec;
+import java.util.Arrays;
+import java.util.Base64;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+
     
-
+//https://stackoverflow.com/questions/10494764/input-length-must-be-multiple-of-16-when-decrypting-with-padded-cipher
         public static String encrypt(final String secret, final String data) {
 
 

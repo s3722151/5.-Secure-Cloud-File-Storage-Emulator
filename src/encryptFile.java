@@ -1,9 +1,6 @@
-import java.awt.Desktop;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.FlowLayout;
-import java.io.File;  // To read files
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner; // Import the Scanner class to read text files
@@ -18,12 +15,6 @@ import javax.crypto.NoSuchPaddingException;
 import java.io.IOException; //To create a file 
 import java.io.FileWriter;   // Import the FileWriter class
 
-import java.util.Arrays;
-import java.util.Base64;
-
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 
 public class encryptFile 
 {
@@ -81,7 +72,7 @@ public class encryptFile
 		        String data = myReader.nextLine();
 		        System.out.println(data);
 		      }
-		      //myReader.close();
+		      myReader.close();
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred.");
 		      e.printStackTrace();

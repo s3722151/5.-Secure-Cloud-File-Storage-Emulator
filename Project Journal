@@ -45,3 +45,6 @@ Problem is I am getting an error that input length must be a multiple of 16 when
 
 18/1/2025
 Tried solutions online to solving padding issue. They did not work.
+
+19/1/2025
+Trying to resolve issues with memory pooling. That is because I did not properly close the reader object when reading.

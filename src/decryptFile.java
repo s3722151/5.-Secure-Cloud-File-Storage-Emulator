@@ -1,8 +1,5 @@
-import java.awt.Desktop;
-import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.FlowLayout;
 import java.io.File;  // To read files
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.UnsupportedEncodingException;
@@ -74,7 +71,7 @@ public class decryptFile
 		        String data = myReader.nextLine();
 		        System.out.println(data);
 		      }
-		      //myReader.close();
+		      myReader.close();
 		    } catch (FileNotFoundException e) {
 		      System.out.println("An error occurred while reading the file.");
 		      e.printStackTrace();
