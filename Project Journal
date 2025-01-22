@@ -56,3 +56,7 @@ I am having having the following issue:
 	This version of the Java Runtime only recognizes preview features for class file version 67.6553"
 https://www.oracle.com/au/java/technologies/downloads/#java21
 I have tried re-installing and changing the jdk. I think I need to to try using an older version, 23 to 21. 
+
+22/1/2025
+For now I installed a local repository on laptop. 
+I am thinking of solution to make a new project but copy the code then go from there.
