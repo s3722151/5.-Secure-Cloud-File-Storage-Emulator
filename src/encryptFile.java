@@ -1,14 +1,14 @@
-import java.io.File;
+import java.io.File;// To read & write to files
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner; // Import the Scanner class to read text files
 import java.security.InvalidKeyException;
-import java.security.Key;
+import java.security.Key; //Generate encryption key
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
+import javax.crypto.Cipher; //Generate cipher block
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
@@ -190,6 +190,8 @@ public class encryptFile
     //Step 7: Confirmation message
     System.out.println("File: " +  retrieveEncryptedFileName + " encrypted and uploaded successfully to the cloud.");
     space();
+    
+    //Main Issue: You cannot save an encrypted file as a txt file:https://stackoverflow.com/questions/69632602/best-way-to-store-aes-encrypted-data
     
     //Follow up on how to decode: https://www.baeldung.com/java-base64-encode-and-decode
     	//Documentation on why we need padding: https://stackoverflow.com/questions/4080988/why-does-base64-encoding-require-padding-if-the-input-length-is-not-divisible-by/18518605#18518605

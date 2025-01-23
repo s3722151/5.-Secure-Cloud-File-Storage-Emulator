@@ -41,7 +41,9 @@ public class aesMediumEncryption
 		String data = "secret data";
 		generateKey();
 		String encryptedData = encrypt(data);
+		System.out.println(encryptedData);
 		String decryptedData = decrypt(encryptedData);
+		System.out.println(decryptedData);
 		if (data.equals(decryptedData)) {
 		    System.out.println("Data is successfully encrypted and decrypted");
 		} else {
