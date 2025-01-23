@@ -1,9 +1,9 @@
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.io.File;  // To read files
-import java.io.FileNotFoundException;  // Import this class to handle errors
+import javax.swing.JFileChooser;//To select files
+import javax.swing.filechooser.FileNameExtensionFilter;//To select files
+import java.io.File;  // To read & write to files
+import java.io.FileNotFoundException;  // To read & write to files
 import java.io.UnsupportedEncodingException;
-import java.util.Scanner; // Import the Scanner class to read text files
+import java.util.Scanner; // To read & write to files
 import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
@@ -13,7 +13,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import java.io.IOException; //To create a file 
-import java.io.FileWriter;   // Import the FileWriter class
+import java.io.FileWriter;   // To write to a file
 
 public class decryptFile 
 {
@@ -153,11 +153,14 @@ https://www.youtube.com/watch?v=1mVldWMT7Vc
 	https://www.youtube.com/watch?v=gMVkp8108f0
 
 2. Read the file
-Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
+https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
 
 3. Encrypt the file (AES)
-What is AES: https://www.techtarget.com/searchsecurity/definition/Advanced-Encryption-Standard
-How to do Symmetric Encryption: https://gregorycernera.medium.com/encrypting-and-decrypting-a-message-using-symmetric-keys-with-java-explained-step-by-step-with-a523b67877d8
+What is AES: 
+	https://www.techtarget.com/searchsecurity/definition/Advanced-Encryption-Standard
+	https://www.youtube.com/watch?v=O4xNJsjtN6E
+How to do Symmetric Encryption: 
+	https://gregorycernera.medium.com/encrypting-and-decrypting-a-message-using-symmetric-keys-with-java-explained-step-by-step-with-a523b67877d8
 	https://www.baeldung.com/java-aes-encryption-decryption
 
 4. Write a new file 

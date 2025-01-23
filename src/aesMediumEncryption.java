@@ -5,15 +5,14 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 
-
+//WORKS
 public class aesMediumEncryption 
 {
 	//Define Algorithm encryption algorithm and key
 	private static final String ALGORITHM = "AES";
-	private static final byte[] keyValue = 
-	new byte[] { 'T', 'h', 'i', 's', 'I', 's', 'A', 'S', 'e', 'c', 'r','e', 't', 'K', 'e', 'y' };
+	private static final byte[] keyValue = new byte[] { 'T', 'h', 'i', 's', 'I', 's', 'A', 'S', 'e', 'c', 'r','e', 't', 'K', 'e', 'y' };
 	
-	//method to encrypt data:
+	//Method to encrypt data:
 	public static String encrypt(String data) throws Exception {
 	    Key key = generateKey();//generation dinamic 
 	    Cipher c = Cipher.getInstance(ALGORITHM);
@@ -22,12 +21,12 @@ public class aesMediumEncryption
 	    return Base64.getEncoder().encodeToString(encVal);
 	}
 	
-	//method to generate the encryption key:
+	//Method to generate the encryption key:
 	private static Key generateKey() throws Exception {
 	    return new SecretKeySpec(keyValue, ALGORITHM);
 	}
 	
-	//method to decrypt data:
+	//Method to decrypt data:
 	public static String decrypt(String encryptedData) throws Exception {
 	    Key key = generateKey();
 	    Cipher c = Cipher.getInstance(ALGORITHM);
@@ -36,7 +35,7 @@ public class aesMediumEncryption
 	    byte[] decVal = c.doFinal(decodedValue);
 	    return new String(decVal);
 	}
-	
+//Main method
 	public static void main(String[] args) throws Exception
 	{
 		String data = "secret data";

@@ -60,3 +60,7 @@ I have tried re-installing and changing the jdk. I think I need to to try using 
 22/1/2025
 For now I installed a local repository on laptop. 
 I am thinking of solution to make a new project but copy the code then go from there.
+
+23/1/2025
+I resolved the issue of linkage. Just downloaded JDK 21 and changed the filepath and properties.
+Investing computerphile to understand AES. Reviewing code examples to revise.  
