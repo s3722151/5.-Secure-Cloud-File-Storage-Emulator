@@ -192,6 +192,7 @@ public class encryptFile
     space();
     
     //Main Issue: You cannot save an encrypted file as a txt file:https://stackoverflow.com/questions/69632602/best-way-to-store-aes-encrypted-data
+    //Solution: Try to encrypt using aesMediumEncryption or https://www.youtube.com/watch?v=J1RmZZEkN0k
     
     //Follow up on how to decode: https://www.baeldung.com/java-base64-encode-and-decode
     	//Documentation on why we need padding: https://stackoverflow.com/questions/4080988/why-does-base64-encoding-require-padding-if-the-input-length-is-not-divisible-by/18518605#18518605
