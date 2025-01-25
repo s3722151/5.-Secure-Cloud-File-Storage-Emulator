@@ -63,4 +63,14 @@ I am thinking of solution to make a new project but copy the code then go from t
 
 23/1/2025
 I resolved the issue of linkage. Just downloaded JDK 21 and changed the filepath and properties.
-Investing computerphile to understand AES. Reviewing code examples to revise.  s
+Investing computerphile to understand AES. Reviewing code examples to revise.  
+
+24/1/2025.
+Light day. Just looking at some examples.
+
+25/1/2025
+Created a new file "wayOneEncryption". 
+This would be a simple way of encrypting the file however you do NOT select file size (e.g. 128, 258).
+Through this, I realised the error of "encryptFile". Turns out I had read the contents but encrypted the fileName, not the contents itself :).
+Also that when encrypting only some parts of the file are encrypted.
+

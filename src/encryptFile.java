@@ -1,10 +1,10 @@
 import java.io.File;// To read & write to files
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.JFileChooser; //To select files
+import javax.swing.filechooser.FileNameExtensionFilter;//To select files
 import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.io.UnsupportedEncodingException;
+import java.io.UnsupportedEncodingException;// Import this class to handle errors
+import java.security.InvalidKeyException;// Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
-import java.security.InvalidKeyException;
 import java.security.Key; //Generate encryption key
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.BadPaddingException;
@@ -58,7 +58,7 @@ public class encryptFile
 	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException 
 	{
 	System.out.println("Select the file that you wish to encrypt.");
-	String fileName;
+	String fileName, data = null;
 	fileName = getFileName();
 	space();
 	System.out.println("Now reading the file: " + fileName);
@@ -69,7 +69,7 @@ public class encryptFile
 		      myObj = new File(fileName);
 		      Scanner myReader = new Scanner(myObj);  
 		      while (myReader.hasNextLine()) {
-		        String data = myReader.nextLine();
+		        data = myReader.nextLine();
 		        System.out.println(data);
 		      }
 		      myReader.close();
@@ -78,10 +78,10 @@ public class encryptFile
 		      e.printStackTrace();
 		    }
 	space();
-//Encrypt stage
+	//Encrypt stage
 	System.out.println("Now proceeding to encrypt with AES.");
 	// Step 1: Convert the text to bytes.
-	byte[] message = fileName.getBytes();
+	byte[] message = data.getBytes();
     // Step 2: Create a KeyGenerator object - Generate a secret (symmetric) key
     KeyGenerator keyGen = KeyGenerator.getInstance("AES");
     // Step 3: Initialize KeyGenerator - tell how many bytes we want our key to be.
@@ -110,7 +110,7 @@ public class encryptFile
     // Step 8: Encrypt the file
     byte[] ciphertext = cipher.doFinal();
     // Step 9: Print the ciphertext
-    System.out.println("Plain message, unencrypted input is: " + new String(fileName));
+    System.out.println("Plain message, unencrypted input is: " + new String(data));
     System.out.println("Ciphertext, encrypted input is now: " + new String(ciphertext, "UTF8"));
     space();
 
@@ -120,7 +120,7 @@ public class encryptFile
         if (createObj.createNewFile()) {  
           System.out.println("File created: " + createObj.getName());  
         } else {  
-          System.out.println("Could not create the file: "+ fileName + " to store encrypted results as file already exists.");  
+          System.out.println("Could not create the file:encrypted"+ fileName + " to store encrypted results as file already exists.");  
         }  
       } catch (IOException e) {
         System.out.println("An error occurred while creating the file that would be encrypted.");
@@ -142,9 +142,26 @@ public class encryptFile
     
 //Decrypting Stage
     System.out.println("Now proceed to decrypt a file of your choice.");
-    String retrieveEncryptedFileName;
+    String retrieveEncryptedFileName, decryptedData = null;
     retrieveEncryptedFileName = getFileName();
-	space();   
+	System.out.println("Now reading the file: " + retrieveEncryptedFileName);
+	System.out.println("The contents of the file is as follows.");
+	space();
+	//Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
+	File readEncryptedObj;
+	   try {
+		   readEncryptedObj = new File(retrieveEncryptedFileName);
+		      Scanner myReader = new Scanner(readEncryptedObj);  
+		      while (myReader.hasNextLine()) {
+		    	decryptedData = myReader.nextLine();
+		        System.out.println(decryptedData);
+		      }
+		      myReader.close();
+		    } catch (FileNotFoundException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+	space();
 	System.out.println("Now proceeding to decrypt with AES.");
 	// Step 1: Convert the text to bytes.
 	byte[] encryptedMessage = retrieveEncryptedFileName.getBytes();
@@ -152,7 +169,6 @@ public class encryptFile
     try {
 		cipher.init(Cipher.DECRYPT_MODE, key);
 	} catch (InvalidKeyException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
     // Step 2: Give the Cipher our file
