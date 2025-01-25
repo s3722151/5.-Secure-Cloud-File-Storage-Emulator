@@ -72,5 +72,7 @@ Light day. Just looking at some examples.
 Created a new file "wayOneEncryption". 
 This would be a simple way of encrypting the file however you do NOT select file size (e.g. 128, 258).
 Through this, I realised the error of "encryptFile". Turns out I had read the contents but encrypted the fileName, not the contents itself :).
-Also that when encrypting only some parts of the file are encrypted.
+Also that when encrypting only some parts of the file are encrypted, the second line. 
+- The issue may draw from .hasNextLine.
+
 
