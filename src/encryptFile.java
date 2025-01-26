@@ -130,7 +130,7 @@ public class encryptFile
     try {
         FileWriter myWriter = new FileWriter("cloud\\encrypted"+ fileName);//CHANGE this path based on where you saved it.
         myWriter.write(new String(ciphertext, "UTF8"));
-        myWriter.close();
+        myWriter.close();//Ensure that this writes after operation
         System.out.println("Successfully wrote to the file the encrypted contents.");
       } catch (IOException e) {
         System.out.println("An error occurred while writing to the file - encrypted contents.");
@@ -231,6 +231,9 @@ https://www.youtube.com/watch?v=1mVldWMT7Vc
 
 2. Read the file
 Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
+	Alternate Way: https://www.youtube.com/watch?v=ScUJx4aWRi0&t=210s
+					https://www.youtube.com/watch?v=2ZVH1KeDSHo
+	Parsing a file: https://www.youtube.com/watch?v=UYa8zSbnyjo
 
 3. Encrypt the file (AES)
 What is AES: https://www.techtarget.com/searchsecurity/definition/Advanced-Encryption-Standard

@@ -75,4 +75,7 @@ Through this, I realised the error of "encryptFile". Turns out I had read the co
 Also that when encrypting only some parts of the file are encrypted, the second line. 
 - The issue may draw from .hasNextLine.
 
+26/1/2025
+Today I am looking at potential ways how I could parse to a variable (parsing)
+I am also looking at the arrays and arraylist https://www.youtube.com/watch?v=NbYgm0r7u6o.
 

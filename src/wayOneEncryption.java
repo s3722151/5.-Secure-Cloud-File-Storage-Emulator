@@ -91,10 +91,12 @@ public class wayOneEncryption
 	    return new String(decVal);
 	}
 //Main method
+	@SuppressWarnings("null")
 	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException
 	{
 		System.out.println("Select the file that you wish to encrypt.");
-		String fileName, data = null;
+		String fileName, data= null;
+		String contents = "";
 		fileName = getFileName();
 		space();
 		System.out.println("Now reading the file: " + fileName);
@@ -106,6 +108,7 @@ public class wayOneEncryption
 			      Scanner myReader = new Scanner(myObj);  
 			      while (myReader.hasNextLine()) {
 			        data = myReader.nextLine();
+			        contents.concat("\n"+ data);
 			        System.out.println(data);
 			      }
 			      myReader.close();
@@ -127,6 +130,8 @@ public class wayOneEncryption
 		String encryptedData = null;
 		try {
 			encryptedData = encrypt(data);
+			System.out.println("Here is the contents of contents");
+	        System.out.println(contents);
 		} catch (Exception e) {
 			System.out.println("Could not encrypt the data");
 			e.printStackTrace();
