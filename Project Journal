@@ -79,3 +79,13 @@ Also that when encrypting only some parts of the file are encrypted, the second 
 Today I am looking at potential ways how I could parse to a variable (parsing)
 I am also looking at the arrays and arraylist https://www.youtube.com/watch?v=NbYgm0r7u6o.
 
+27/1/2025
+https://www.youtube.com/watch?v=YXpgcRa7_sg
+- This directs a scanner to read things
+https://www.youtube.com/watch?v=NfSOICxcyzA
+-  Make a variable equal to all lines
+https://www.youtube.com/watch?v=WmMCUSMQuag
+- This has a way to count number of lines (int numTmimes)
+
+
+

@@ -85,7 +85,7 @@ public class encryptFile
     // Step 2: Create a KeyGenerator object - Generate a secret (symmetric) key
     KeyGenerator keyGen = KeyGenerator.getInstance("AES");
     // Step 3: Initialize KeyGenerator - tell how many bytes we want our key to be.
-    keyGen.init(256);
+    keyGen.init(128);
     // Step 4: Generate the key
     Key key = keyGen.generateKey();
     // Step 5: Create a Cipher object -  handle our encryption and decryption
