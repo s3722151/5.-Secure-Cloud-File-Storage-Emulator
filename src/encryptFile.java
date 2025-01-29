@@ -78,7 +78,7 @@ public class encryptFile
 		      e.printStackTrace();
 		    }
 	space();
-	//Encrypt stage
+	//Encrypt stage: https://gregorycernera.medium.com/encrypting-and-decrypting-a-message-using-symmetric-keys-with-java-explained-step-by-step-with-a523b67877d8
 	System.out.println("Now proceeding to encrypt with AES.");
 	// Step 1: Convert the text to bytes.
 	byte[] message = data.getBytes();
