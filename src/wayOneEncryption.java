@@ -21,8 +21,13 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 
 import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.io.UnsupportedEncodingException;// Import this class to handle errors
 import java.security.InvalidKeyException;// Import this class to handle errors
+
+import java.nio.file.Files; //Import to handle reading all lines: https://medium.com/@AlexanderObregon/javas-files-readalllines-method-explained-14312314c1c4#:~:text=readAllLines()%20is%20its%20simplicity,older%20methods%20such%20as%20BufferedReader%20
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.io.IOException;
+import java.util.List;
 
 public class wayOneEncryption 
 {
@@ -92,12 +97,13 @@ public class wayOneEncryption
 	}
 //Main method
 	@SuppressWarnings("null")
-	public static void main(String[] args) throws NoSuchAlgorithmException, UnsupportedEncodingException, IllegalBlockSizeException, BadPaddingException
+	public static void main(String[] args) throws NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, IOException
 	{
 		System.out.println("Select the file that you wish to encrypt.");
 		String fileName, data= null;
 		String contents = "";
 		fileName = getFileName();
+		Path pathTest = Paths.get(fileName);// Create a Path object representing the file
 		space();
 		System.out.println("Now reading the file: " + fileName);
 		System.out.println("The contents of the file is as follows.");
@@ -108,7 +114,6 @@ public class wayOneEncryption
 			      Scanner myReader = new Scanner(myObj);  
 			      while (myReader.hasNextLine()) {
 			        data = myReader.nextLine();
-			        contents.concat("\n"+ data);
 			        System.out.println(data);
 			      }
 			      myReader.close();
@@ -117,6 +122,27 @@ public class wayOneEncryption
 			      e.printStackTrace();
 			    }
 		space();
+		System.out.println("Now doing way 2 of reading a file.");
+		//Way 2 of reading a file
+		 List<String> lines = null;
+		try {
+            // Step 2: Call Files.readAllLines() to read the file content
+            lines = Files.readAllLines(pathTest);
+            
+            // Print each line to the console
+            lines.forEach(System.out::println);
+        } catch (IOException e) {
+            // Step 3: Handle the IOException
+            e.printStackTrace();
+        }
+		System.out.println("Way 2 of reading the file has been done");
+		space();
+		
+		System.out.println("Testing if way 2 can be called upon");//If this works then I could encrypt it easily
+		lines.forEach(System.out::println);
+		space();
+		
+		
 
 		//String data = "secret data";
 		//Generate key
@@ -131,7 +157,6 @@ public class wayOneEncryption
 		try {
 			encryptedData = encrypt(data);
 			System.out.println("Here is the contents of contents");
-	        System.out.println(contents);
 		} catch (Exception e) {
 			System.out.println("Could not encrypt the data");
 			e.printStackTrace();

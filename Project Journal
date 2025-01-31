@@ -90,6 +90,23 @@ https://www.youtube.com/watch?v=WmMCUSMQuag
 28/1/2025
 Light day.
 
-29/1/2025
+30/1/2025
 Way to make multilines into 1 variable: https://www.youtube.com/watch?v=iItTEl9d-aI
+
+31/1/2025
+Continuing on listArrays. Instead of reading line by line, you can read all lines.
+https://medium.com/@AlexanderObregon/javas-files-readalllines-method-explained-14312314c1c4#:~:text=readAllLines()%20is%20its%20simplicity,older%20methods%20such%20as%20BufferedReader%20
+I would then need to adapt this in wayOneEncryption file.
+This could then be used as confirmation all lines are read but stored together in contrast to the last line.
+After playing around in the wayOneEncryption file. 
+I was successfully able to read all lines, store it ina listArray and call upon it multilple times. 
+Now I just need to encrypt it. 
+If successful, I just need to worry about finding the right encryption. 
+
+
+Final Thoughts 
+- I learnt how to manually select a file and use it. 
+- I learnt the difference between bufferedReader(faster) vs. scanners.
+- I was exposed listArrays.
+- I think I lost motivation towards to the end. That was a mix of being stuck but being tired from work.
 
