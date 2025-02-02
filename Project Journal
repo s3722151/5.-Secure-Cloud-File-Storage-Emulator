@@ -103,6 +103,8 @@ I was successfully able to read all lines, store it ina listArray and call upon 
 Now I just need to encrypt it. 
 If successful, I just need to worry about finding the right encryption. 
 
+2/2/2025
+I learnt that you cannot just encode a listString the same way a string is done in wayOneEncryption file.
 
 Final Thoughts 
 - I learnt how to manually select a file and use it. 

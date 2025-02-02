@@ -31,6 +31,7 @@ import java.util.List;
 
 public class wayOneEncryption 
 {
+//Way of encryption: https://danielangel22.medium.com/step-by-step-guide-to-encrypt-and-decrypt-data-with-aes-in-java-2baf4343be60
 //METHODS
 	//Method to choose a file: https://www.youtube.com/watch?v=gMVkp8108f0
 		public static String getFileName() 
@@ -72,8 +73,17 @@ public class wayOneEncryption
 	private static final String ALGORITHM = "AES";
 	private static final byte[] keyValue = new byte[] { 'T', 'h', 'i', 's', 'I', 's', 'A', 'S', 'e', 'c', 'r','e', 't', 'K', 'e', 'y' };
 	
-	//Method to encrypt data:
+	//Method to encrypt data - As string:
 	public static String encrypt(String fileName) throws Exception {
+	    Key key = generateKey();//generation dinamic 
+	    Cipher c = Cipher.getInstance(ALGORITHM);
+	    c.init(Cipher.ENCRYPT_MODE, key);
+	    byte[] encVal = c.doFinal(fileName.getBytes());
+	    return Base64.getEncoder().encodeToString(encVal);
+	}
+	
+	//Method to encrypt data - As string -listString:
+	public static String listEncrypt(List<String> fileName) throws Exception {
 	    Key key = generateKey();//generation dinamic 
 	    Cipher c = Cipher.getInstance(ALGORITHM);
 	    c.init(Cipher.ENCRYPT_MODE, key);
@@ -123,7 +133,7 @@ public class wayOneEncryption
 			    }
 		space();
 		System.out.println("Now doing way 2 of reading a file.");
-		//Way 2 of reading a file
+		//Way 2 of reading a file: Using a listString array: https://medium.com/@AlexanderObregon/javas-files-readalllines-method-explained-14312314c1c4#:~:text=readAllLines()%20is%20its%20simplicity,older%20methods%20such%20as%20BufferedReader%20
 		 List<String> lines = null;
 		try {
             // Step 2: Call Files.readAllLines() to read the file content
