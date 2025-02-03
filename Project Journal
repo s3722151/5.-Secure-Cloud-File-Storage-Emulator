@@ -105,6 +105,13 @@ If successful, I just need to worry about finding the right encryption.
 
 2/2/2025
 I learnt that you cannot just encode a listString the same way a string is done in wayOneEncryption file.
+- Possible sources: https://www.youtube.com/watch?v=-Jl6HxeiqA8
+
+3/2/2025
+I followed this guide: https://stackoverflow.com/questions/27962116/simplest-way-to-encrypt-a-text-file-in-java
+This was an alternate way of encrypting using DES (file is "methodDES").
+Useful source - Reading Text Files using an ArrayList: https://www.youtube.com/watch?v=_6_zAtrWl8o
+
 
 Final Thoughts 
 - I learnt how to manually select a file and use it. 

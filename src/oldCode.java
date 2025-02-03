@@ -1,15 +1,17 @@
-//import java.io.File;
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-//
-public class oldCode {
-	
+
+
+
+public class oldCode 
+{
 	//Method 1: https://stackoverflow.com/questions/40255039/how-to-choose-file-in-java
 	static void selectedFile() 
 	{
 	    JFileChooser chooser = new JFileChooser();
 	    
-	    chooser.setCurrentDirectory(new File("."));
+//	    chooser.setCurrentDirectory(new File("."));
 	    //How to open at select place: chooser.setCurrentDirectory(new File("C:\\Users\\JC\\Documents"));
 	    
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter(
@@ -30,12 +32,4 @@ public class oldCode {
 	    	System.out.println(e);
 	    }		
 	}
-	
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
-

@@ -82,14 +82,6 @@ public class wayOneEncryption
 	    return Base64.getEncoder().encodeToString(encVal);
 	}
 	
-	//Method to encrypt data - As string -listString:
-	public static String listEncrypt(List<String> fileName) throws Exception {
-	    Key key = generateKey();//generation dinamic 
-	    Cipher c = Cipher.getInstance(ALGORITHM);
-	    c.init(Cipher.ENCRYPT_MODE, key);
-	    byte[] encVal = c.doFinal(fileName.getBytes());
-	    return Base64.getEncoder().encodeToString(encVal);
-	}
 	
 	//Method to generate the encryption key:
 	private static Key generateKey() throws Exception {
@@ -117,7 +109,7 @@ public class wayOneEncryption
 		space();
 		System.out.println("Now reading the file: " + fileName);
 		System.out.println("The contents of the file is as follows.");
-		//Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
+		//Reading the file - Way 1: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
 		File myObj;
 		   try {
 			      myObj = new File(fileName);
@@ -140,17 +132,20 @@ public class wayOneEncryption
             lines = Files.readAllLines(pathTest);
             
             // Print each line to the console
-            lines.forEach(System.out::println);
+            //lines.forEach(System.out::println);
+            
+            for (String line :lines) {
+            	System.out.println(line);//https://youtu.be/rZl3PwAtH3g?si=tZtxwp9rYusNJlVw
+            }
         } catch (IOException e) {
             // Step 3: Handle the IOException
             e.printStackTrace();
         }
-		System.out.println("Way 2 of reading the file has been done");
 		space();
 		
-		System.out.println("Testing if way 2 can be called upon");//If this works then I could encrypt it easily
-		lines.forEach(System.out::println);
-		space();
+//		System.out.println("Testing if way 2 can be called upon");//If this works then I could encrypt it easily
+//		lines.forEach(System.out::println);
+//		space();
 		
 		
 
@@ -166,7 +161,7 @@ public class wayOneEncryption
 		String encryptedData = null;
 		try {
 			encryptedData = encrypt(data);
-			System.out.println("Here is the contents of contents");
+			System.out.println("Here is the contents");
 		} catch (Exception e) {
 			System.out.println("Could not encrypt the data");
 			e.printStackTrace();
