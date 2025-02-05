@@ -127,6 +127,8 @@ public class wayOneEncryption
 		System.out.println("Now doing way 2 of reading a file.");
 		//Way 2 of reading a file: Using a listString array: https://medium.com/@AlexanderObregon/javas-files-readalllines-method-explained-14312314c1c4#:~:text=readAllLines()%20is%20its%20simplicity,older%20methods%20such%20as%20BufferedReader%20
 		 List<String> lines = null;
+		 
+		 
 		try {
             // Step 2: Call Files.readAllLines() to read the file content
             lines = Files.readAllLines(pathTest);
