@@ -80,6 +80,8 @@ public class methodDES
 		space();
 		
 		
+		
+		
         //DES METHOD: https://stackoverflow.com/questions/27962116/simplest-way-to-encrypt-a-text-file-in-java
 		try{
             KeyGenerator keygenerator = KeyGenerator.getInstance("DES");

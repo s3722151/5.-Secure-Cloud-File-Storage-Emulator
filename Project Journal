@@ -125,6 +125,10 @@ Step 3: Encrypt
 Step 4: Turn the string back into an array
 https://www.geeksforgeeks.org/convert-a-string-to-character-array-in-java/
 
+6/2/2025
+Had time to try the above. It works.
+Now I just need to find a way for it to print it at each line
+
 Final Thoughts 
 - I learnt how to manually select a file and use it. 
 - I learnt the difference between bufferedReader(faster) vs. scanners.
