@@ -129,6 +129,12 @@ https://www.geeksforgeeks.org/convert-a-string-to-character-array-in-java/
 Had time to try the above. It works.
 Now I just need to find a way for it to print it at each line
 
+7/2/2025
+I used DeepSeek to make a solution "encryptFile".
+- It made the read method a method which is more smarter
+- Less try and catch methods in final version which is cleaner
+- It explained the importance of removing whitespace before decrypting
+
 Final Thoughts 
 - I learnt how to manually select a file and use it. 
 - I learnt the difference between bufferedReader(faster) vs. scanners.

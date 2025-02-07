@@ -113,55 +113,17 @@ public class wayOneEncryption
 		space();
 		System.out.println("Now reading the file: " + fileName);
 		System.out.println("The contents of the file is as follows.");
-		//Reading the file - Way 1: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
-		File myObj;
-		   try {
-			      myObj = new File(fileName);
-			      Scanner myReader = new Scanner(myObj);  
-			      while (myReader.hasNextLine()) {
-			        data = myReader.nextLine();
-			        System.out.println(data);
-			      }
-			      myReader.close();
-			    } catch (FileNotFoundException e) {
-			      System.out.println("An error occurred.");
-			      e.printStackTrace();
-			    }
 		space();
 		
-//		System.out.println("Now doing way 2 of reading a file.");
-		//Way 2 of reading a file: Using a listString array: https://medium.com/@AlexanderObregon/javas-files-readalllines-method-explained-14312314c1c4#:~:text=readAllLines()%20is%20its%20simplicity,older%20methods%20such%20as%20BufferedReader%20
-//		 List<String> lines = null;	 
-//		try {
-//            // Step 2: Call Files.readAllLines() to read the file content
-//            lines = Files.readAllLines(pathTest);
-//            
-//            // Print each line to the console
-//            //lines.forEach(System.out::println);
-//            
-//            for (String line :lines) {
-//            	System.out.println(line);//https://youtu.be/rZl3PwAtH3g?si=tZtxwp9rYusNJlVw
-//            }
-//        } catch (IOException e) {
-//            // Step 3: Handle the IOException
-//            e.printStackTrace();
-//        }
-//		space();
-//		System.out.println("Testing if way 2 can be called upon");//If this works then I could encrypt it easily
-//		lines.forEach(System.out::println);
-//		space();
-		
-		//Way 3: Readlines to read file by an array: https://www.geeksforgeeks.org/read-file-into-an-array-in-java/
+		//Readlines to read file by an array: https://www.geeksforgeeks.org/read-file-into-an-array-in-java/
 		String[] array = null;
 		try 
 		{
 			System.out.println("Now doing way 3 of reading a file.");
-	        List<String> listOfStrings
-            = new ArrayList<String>();
+	        List<String> listOfStrings= new ArrayList<String>();
        
         // load the data from file
-        listOfStrings
-            = Files.readAllLines(pathTest);
+        listOfStrings = Files.readAllLines(pathTest);
        
         // convert arraylist to array
         array = listOfStrings.toArray(new String[0]);
@@ -169,6 +131,7 @@ public class wayOneEncryption
         // print each line of string in array
         	for (String eachString : array) 
 	        {
+        		Arrays.toString(array);//Turn the array into a string
 	            System.out.println(eachString);
 	        }
 		}
@@ -176,11 +139,7 @@ public class wayOneEncryption
 			e.printStackTrace();
 		}
 		space();
-		
-//Turn the array into a string
 
-
-		//String data = "secret data";
 //Generate key
 		try {
 			generateKey();
@@ -190,9 +149,16 @@ public class wayOneEncryption
 		}
 		//Encrypt stage
 		String encryptedData = null;
+		String[] encryptedArray = null;
 		try {
 			encryptedData = encrypt(Arrays.toString(array));
 			System.out.println("Here is the contents");
+			
+        	for (String eachString : array) 
+	        {
+	            System.out.println(eachString);
+	        }
+			
 		} catch (Exception e) {
 			System.out.println("Could not encrypt the data");
 			e.printStackTrace();

@@ -47,22 +47,6 @@ public class methodDES
 		space();
 		System.out.println("Now reading the file: " + fileName);
 		System.out.println("The contents of the file is as follows.");
-		//Reading the file - Way 1: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
-		File myObj;
-		   try {
-			      myObj = new File(fileName);
-			      Scanner myReader = new Scanner(myObj);  
-			      while (myReader.hasNextLine()) {
-			        data = myReader.nextLine();
-			        System.out.println(data);
-			      }
-			      myReader.close();
-			    } catch (FileNotFoundException e) {
-			      System.out.println("An error occurred.");
-			      e.printStackTrace();
-			    }
-		space();
-		System.out.println("Now doing way 2 of reading a file.");
 		//Way 2 of reading a file: Using a listString array: https://medium.com/@AlexanderObregon/javas-files-readalllines-method-explained-14312314c1c4#:~:text=readAllLines()%20is%20its%20simplicity,older%20methods%20such%20as%20BufferedReader%20
 		 List<String> lines = null;
 		 char[] charArray = null;
@@ -78,10 +62,7 @@ public class methodDES
             e.printStackTrace();
         }
 		space();
-		
-		
-		
-		
+	
         //DES METHOD: https://stackoverflow.com/questions/27962116/simplest-way-to-encrypt-a-text-file-in-java
 		try{
             KeyGenerator keygenerator = KeyGenerator.getInstance("DES");
@@ -90,7 +71,7 @@ public class methodDES
             Cipher desCipher;
             desCipher = Cipher.getInstance("DES");
 
-
+            //Here you cannot substitute char[]
             byte[] text = "No body can see me.".getBytes("UTF8");
             System.out.println("The text convered to bytes is: "+ text);
             space();

@@ -207,14 +207,7 @@ public class encryptFile
     System.out.println("File: " +  retrieveEncryptedFileName + " encrypted and uploaded successfully to the cloud.");
     space();
     
-    //Main Issue: You cannot save an encrypted file as a txt file:https://stackoverflow.com/questions/69632602/best-way-to-store-aes-encrypted-data
-    //Solution: Try to encrypt using aesMediumEncryption or https://www.youtube.com/watch?v=J1RmZZEkN0k
-    
-    //USED : https://www.baeldung.com/java-base64-encode-and-decode
-    	//Documentation on why we need padding: https://stackoverflow.com/questions/4080988/why-does-base64-encoding-require-padding-if-the-input-length-is-not-divisible-by/18518605#18518605
-    //READ already - This is also similar: https://danielangel22.medium.com/step-by-step-guide-to-encrypt-and-decrypt-data-with-aes-in-java-2baf4343be60
-	//FOLLOW UP https://www.youtube.com/watch?v=Se9EbUTSHO8
-    
+
 	}//End of main statement
 
 }
@@ -234,6 +227,7 @@ https://www.youtube.com/watch?v=1mVldWMT7Vc
 Reading the file: https://www.w3schools.com/java/showjava.asp?filename=demo_files_read 
 	Alternate Way: https://www.youtube.com/watch?v=ScUJx4aWRi0&t=210s
 					https://www.youtube.com/watch?v=2ZVH1KeDSHo
+					Using a listString array: https://medium.com/@AlexanderObregon/javas-files-readalllines-method-explained-14312314c1c4#:~:text=readAllLines()%20is%20its%20simplicity,older%20methods%20such%20as%20BufferedReader%20
 	Parsing a file: https://www.youtube.com/watch?v=UYa8zSbnyjo
 
 3. Encrypt the file (AES)
@@ -247,6 +241,14 @@ Absolute vs relative paths: https://www.youtube.com/watch?v=ephId3mYu9o
 
 STAGE 2: Retrieving the file
 ERROR - OInput length must be a multilpe of 16: https://stackoverflow.com/questions/10494764/input-length-must-be-multiple-of-16-when-decrypting-with-padded-cipher
+
+    //Main Issue: You cannot save an encrypted file as a txt file:https://stackoverflow.com/questions/69632602/best-way-to-store-aes-encrypted-data
+    //Solution: Try to encrypt using aesMediumEncryption or https://www.youtube.com/watch?v=J1RmZZEkN0k
+    
+    //USED : https://www.baeldung.com/java-base64-encode-and-decode
+    	//Documentation on why we need padding: https://stackoverflow.com/questions/4080988/why-does-base64-encoding-require-padding-if-the-input-length-is-not-divisible-by/18518605#18518605
+    //READ already - This is also similar: https://danielangel22.medium.com/step-by-step-guide-to-encrypt-and-decrypt-data-with-aes-in-java-2baf4343be60
+	//FOLLOW UP https://www.youtube.com/watch?v=Se9EbUTSHO8
 
 Other
 How to make a method: https://www.w3schools.com/java/java_methods.asp
